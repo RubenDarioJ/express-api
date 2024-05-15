@@ -1,5 +1,6 @@
 const express = require('express');
 const http = require('http');
+require('dotenv').config();
 
 const app = express();
 const server = http.createServer(app);
@@ -25,7 +26,7 @@ app.post('/get-users', express.json(), (req, res) => {
   res.send(`Parámetro 1: ${id}, Parámetro 2: ${id}`);
 });
 
-const PORT = 3000;
+const PORT = process.env.PORT;
 
 server.listen(PORT, () => {
   console.log(`Server is running on PORT: ${PORT}`);
